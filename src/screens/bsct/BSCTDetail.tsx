@@ -107,23 +107,9 @@ const BSCTDetail = ({navigation, route}: any) => {
                   size={18}
                 />
                 <Space height={8} />
-                {/* <TextComponents
-                  text={productDetail.description}
-                  styles={{textAlign: 'justify'}}
-                  size={12}
-                  color={colors.gray700}
-                /> */}
-                {/* <Text style={styles.baseText}> */}
                 <View>
                   <RenderHTML
                       WebView={WebView}
-                      // renderers={{
-                      //   iframe : IframeRenderer
-                      // }}
-                      // customHTMLElementModels={{
-                      //   iframe : iframeModel
-                      // }}
-                      
                       contentWidth={Dimensions.get('window').width}
                       source={{html : bsctDetail.description}}
                       tagsStyles={{
