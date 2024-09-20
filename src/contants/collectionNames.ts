@@ -4,5 +4,6 @@ export const collectionNames = {
     sliders : 'sliders',
     bsct : 'bsct',
     products : 'products',
-    categories : 'categories'
+    categories : 'categories',
+    nndt : 'nndt'
 }

@@ -8,10 +8,21 @@ import { fontFamilies } from '../../../contants/fontFamilies';
 import { TextComponents } from '../../../components';
 import { colors } from '../../../contants/colors';
 
-const CategoriesList = () => {
+const CategoriesList = ({navigation} : any) => {
     const [categories, setCategories] = useState<CategoryModel[]>([]);
 
     const [products, setProducts] = useState<ProductModel[]>([]);
+
+    const [filteredProducts, setFilteredProducts] = useState<ProductModel[]>([]);
+
+    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+    useEffect(()=>{
+      const filtered = products.filter(product => {
+        const matchesCategory = selectedCategory ? product.categories.includes(selectedCategory) : true;
+      })
+      setFilteredProducts(filtered);
+    },[selectedCategory, products])
 
     useEffect(() => {
       categoriesRef
@@ -51,7 +62,7 @@ const CategoriesList = () => {
         });
     }, []);
   return (
-<View style={{flex: 1}}>
+      <View style={{flex: 1}}>
         <Tabbar
           title="DANH MỤC"
           tabbarStylesProps={{paddingHorizontal: 16}}

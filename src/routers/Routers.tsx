@@ -40,7 +40,14 @@ const Routers = () => {
       ) : user.uid ? (
         <MainNavigator />
       ) : (
-      <AuthNavigator/>)
+      <AuthNavigator/>
+    )
+
+    // isWelcome  ? (
+    //   <Splash/>
+    // ) : (
+    //   <MainNavigator />
+    // ) 
   )
 }
 

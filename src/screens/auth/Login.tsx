@@ -50,9 +50,11 @@ const Login = ({navigation}: any) => {
         }
         setIsLoading(false)
       } catch (error) {
+        setIsLoading(false)
         setErrorText('Email hoặc mật khẩu không đúng')
       }
     }else{
+
       setErrorText('Email hoặc mật khẩu không đúng')
     }
   }

@@ -281,7 +281,8 @@ const ProductDetail = ({navigation, route}: any) => {
                   </View>
                 </Row>
                 <Space height={20} />
-                    <Row wrap="wrap" justifyContent="flex-start">
+                {/* Sẽ cập nhật sau */}
+                    {/* <Row wrap="wrap" justifyContent="flex-start">
                     <View
                         style={[
                           globalStyles.shadow,
@@ -319,7 +320,7 @@ const ProductDetail = ({navigation, route}: any) => {
                             </TouchableOpacity>
                           ))}
                     </View>
-                  </Row>
+                  </Row> */}
                 <Space height={20} />
                 <TextComponents
                   font={fontFamilies.robotoBold}

@@ -39,12 +39,12 @@ const DrawerCustom = ({navigation} : any) => {
     //   icon: <Message2 size={size} color={color} />,
     // },
     {
-      key: 'Calendar',
+      key: 'ProductsNongNghiepDoThiScreen',
       title: 'NÔNG NGHIỆP ĐÔ THỊ',
       icon: <Calendar size={size} color={color} />,
     },
     {
-      key: 'Bookmark',
+      key: 'ProductConTrungGiaDungScreen',
       title: 'CÔN TRÙNG GIA DỤNG',
       icon: <Bookmark2 size={size} color={color} />,
     },

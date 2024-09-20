@@ -32,7 +32,7 @@ const HomeScreens = ({navigation} : any) => {
             height : 48
             }}
             icon = {<HambergerMenu size={24} color='white'/>}
-            color={colors.blue}
+            color={colors.blue600}
             onPress={() => navigation.openDrawer()}
           />
           {/* <Avatar/> */}

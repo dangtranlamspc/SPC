@@ -19,6 +19,7 @@ import { useSelector } from 'react-redux';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 type Props = {};
 
@@ -31,7 +32,7 @@ const ProductScreen = (props : Props) => {
 
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const WIDTH = (sizes.width - 70) / 2;
+  const WIDTH = (sizes.width * 0.6);
 
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -110,10 +111,9 @@ const ProductScreen = (props : Props) => {
                       height: 48,
                     },
                   ]}
-                  onPress={() => navigation.navigate('HomeScreen')}>
-                  <MaterialIcons
-                    style={{marginLeft : 8}}
-                    name="arrow-back-ios"
+                  onPress={() => navigation.openDrawer()}>
+                  <FontAwesome
+                    name="bars"
                     size={24}
                     color={colors.white}
                   />
@@ -131,7 +131,7 @@ const ProductScreen = (props : Props) => {
                   text='SẢN PHẨM'
                   styles={{
                     fontSize : 24,
-                    fontFamily : fontFamilies.poppinsSemiBold,
+                    fontWeight : 600,
                     color : colors.blue600
                   }}
                 />
@@ -223,16 +223,25 @@ const ProductScreen = (props : Props) => {
                         }}
                         key={products.id}
                         onPress={() => navigation.navigate('ProductDetail', {id: products.id})}>
-                        <Row>
+                        <Col styles = {{alignItems : 'center'}}>
                             <Image
                                 source={{uri: products.imageUrl}}
                                 style={{
-                                width: WIDTH,
-                                height: WIDTH*1.1,
+                                width: WIDTH ,
+                                height: WIDTH*1.4,
                                 borderRadius: 8,
                                 }}
                             />
-                            <Col styles={{paddingHorizontal: 0}}>
+                                <TextComponents
+                                  color={colors.blue}
+                                  text={products.title}
+                                  font={fontFamilies.poppinsBold}
+                                  size={17}
+                                  styles = {{
+                                      paddingBottom : 10
+                                  }}
+                                />
+                            {/* <Col styles={{paddingHorizontal: 0}}>
                                 <TextComponents
                                   color={colors.blue}
                                   text={products.title}
@@ -252,8 +261,8 @@ const ProductScreen = (props : Props) => {
                                   <Space width={8} />
                                   <TextComponents color={colors.blue} text={`${products.rate}`} />
                                 </Row>
-                            </Col>
-                        </Row>
+                            </Col> */}
+                        </Col>
                     </Card>
             ))}
             <View style={{height : 80}}></View>

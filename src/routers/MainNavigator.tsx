@@ -7,9 +7,12 @@ import FilterScreen from '../screens/home/FilterScreen';
 import ResultScreen from '../screens/home/ResultScreen';
 import ProductScreen from '../screens/products/ProductScreen';
 import BSCTDetail from '../screens/bsct/BSCTDetail';
-import { BSCTScreen, ProfilesScreen } from '../screens';
+import { BSCTScreen, ProductConTrungGiaDungScreen, ProductsNongNghiepDoThiScreen, ProfilesScreen } from '../screens';
 import ProductsNewScreen from '../screens/products/ProductsNewScreen';
 import DrawerNavigator from './DrawerNavigator';
+import ProductsNongNghiepDoThiDetailScreen from '../screens/nongnghiepdothi/ProductsNongNghiepDoThiDetailScreen';
+import ProductsCTGDScreenDetail from '../screens/contrunggiadung/ProductsCTGDScreenDetail';
+
 
 const MainNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -26,6 +29,10 @@ const MainNavigator = () => {
         <Stack.Screen name='BSCTDetail' component={BSCTDetail} />
         <Stack.Screen name='BSCTScreen' component={BSCTScreen} />
         <Stack.Screen name='ProfilesScreen' component={ProfilesScreen}/>
+        <Stack.Screen name='ProductsNongNghiepDoThiScreen' component={ProductsNongNghiepDoThiScreen}/>
+        <Stack.Screen name='ProductsNongNghiepDoThiDetailScreen' component={ProductsNongNghiepDoThiDetailScreen}/>
+        <Stack.Screen name='ProductsCTGDScreenDetail' component={ProductsCTGDScreenDetail} />
+        <Stack.Screen name='ProductConTrungGiaDungScreen' component={ProductConTrungGiaDungScreen} />
     </Stack.Navigator>
   )
 }

@@ -3,9 +3,11 @@ import Result from "./auth/Result";
 import SignUp from "./auth/SignUp";
 import BSCTScreen from "./bsct/BSCTScreen";
 import CartScreen from "./cart/CartScreen";
+import ProductConTrungGiaDungScreen from "./contrunggiadung/ProductConTrungGiaDungScreen";
+import ProductsCTGDScreenDetail from "./contrunggiadung/ProductsCTGDScreenDetail";
 import HomeScreens from "./home/HomeScreens";
 import MediaScreen from "./media/MediaScreen";
-import TinTucNongNghiepScreen from "./nongnghiep/TinTucNongNghiepScreen";
+import ProductsNongNghiepDoThiScreen from "./nongnghiepdothi/ProductsNongNghiepDoThiScreen";
 import NotificationsScreen from "./notifications/NotificationsScreen";
 import ProductDetail from "./products/ProductDetail";
 import ProductScreen from "./products/ProductScreen";
@@ -23,7 +25,9 @@ export {
     ProfilesScreen,
     BSCTScreen,
     MediaScreen,
-    TinTucNongNghiepScreen,
     ProductsNewScreen,
-    ProductDetail
+    ProductDetail,
+    ProductsNongNghiepDoThiScreen,
+    ProductsCTGDScreenDetail,
+    ProductConTrungGiaDungScreen
 }

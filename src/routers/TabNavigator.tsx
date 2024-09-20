@@ -8,74 +8,142 @@ import ProductNavigator from './ProductNavigator';
 import NotificationNavigator from './NotificationNavigator';
 import ProfileNavigator from './ProfileNavigator';
 import DrawerNavigator from './DrawerNavigator';
+import ChatNavigator from './ChatNavigator';
+import Material from 'react-native-vector-icons/MaterialCommunityIcons'
+import { NavigationContainer } from '@react-navigation/native';
+import TabButton from '../components/TabButton';
 
+
+const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
-    const Tab = createBottomTabNavigator();
+    
+    const tabs = [
+      {
+        id : 1,
+        name : 'Product',
+        screen : 'Product',
+        icon : 'application',
+        Component : ProductNavigator,
+      },
+      {
+        id : 2,
+        name : 'Chat',
+        screen : 'Chat',
+        icon : 'message-text',
+        Component : ChatNavigator,
+      },
+      {
+        id : 3,
+        name : 'Home',
+        screen : 'Home',
+        icon : 'home',
+        Component : HomeNavigator,
+      },
+      {
+        id : 4,
+        name : 'Activity',
+        screen : 'Notifications',
+        icon : 'bell',
+        Component : NotificationNavigator,
+      },
+      {
+        id : 5,
+        name : 'Settings',
+        screen : 'Settings',
+        icon : 'cog',
+        Component : ProfileNavigator,
+      },
+
+    ]
   return (
-    <Tab.Navigator
-      safeAreaInsets={{
-        bottom: 0,
-      }}
-      screenOptions={({route}) => ({
-        headerShown : false,
-        tabBarShowLabel:false,
-        tabBarStyle: [
-          styles.tabContainer,
-          Platform.OS === 'ios' && {
-            shadowOffset: { height: -2, width: 2 },
-            shadowOpacity: 0.1,
-            shadowRadius: 20,
-          },
-        ],
-        tabBarItemStyle: {
-          marginBottom: 7,
-        },
-        tabBarInactiveTintColor: 'gray',
-        tabBarActiveTintColor: '#0071ff',
-    })}
-    >
-      <Tab.Screen name="HomeTab" component={HomeNavigator}
-          options={{
-          tabBarIcon: ({ focused }) => (
-            <Home2
-              variant= {focused ? 'Bold' : 'Outline'}
-              size={35}
-              color={focused ? 'white' : colors.gray200}
-            />
-          ),
+    // <Tab.Navigator
+    //   safeAreaInsets={{
+    //     bottom: 0,
+    //   }}
+    //   screenOptions={({route}) => ({
+    //     headerShown : false,
+    //     tabBarShowLabel:false,
+    //     tabBarStyle: [
+    //       styles.tabContainer,
+    //       Platform.OS === 'ios' && {
+    //         shadowOffset: { height: -2, width: 2 },
+    //         shadowOpacity: 0.1,
+    //         shadowRadius: 20,
+    //       },
+    //     ],
+    //     tabBarItemStyle: {
+    //       marginBottom: 7,
+    //     },
+    //     tabBarInactiveTintColor: 'gray',
+    //     tabBarActiveTintColor: '#0071ff',
+    // })}
+    // >
+    //   <Tab.Screen name="HomeTab" component={HomeNavigator}
+    //       options={{
+    //       tabBarIcon: ({ focused }) => (
+    //         <Home2
+    //           variant= {focused ? 'Bold' : 'Outline'}
+    //           size={35}
+    //           color={focused ? 'white' : colors.gray200}
+    //         />
+    //       ),
+    //     }}
+    //   >
+    //   </Tab.Screen>
+    //   <Tab.Screen name="ProductTab" component={ProductNavigator} 
+    //       options={{
+    //       tabBarIcon: ({ focused }) => (
+    //         <Bag2
+    //           variant= {focused ? 'Bold' : 'Outline'}
+    //           size={35}
+    //           color={focused ? 'white' : colors.gray200}
+    //         />
+    //       ),
+    //     }}/>
+    //   <Tab.Screen name="NotificationTab" component={NotificationNavigator} options={{
+    //       tabBarIcon: ({ focused }) => (
+    //         <Global
+    //           variant= {focused ? 'Bold' : 'Outline'}
+    //           size={35}
+    //           color={focused ? 'white' : colors.gray200}
+    //         />
+    //       ),
+    //     }}/>
+    //   <Tab.Screen name="ProfileTab" component={ProfileNavigator} options={{
+    //       tabBarIcon: ({ focused }) => (
+    //         <Profile
+    //           variant= {focused ? 'Bold' : 'Outline'}
+    //           size={35}
+    //           color={focused ? 'white' : colors.gray200}
+    //         />
+    //       ),
+    //     }}/>
+
+    // </Tab.Navigator>
+
+      <Tab.Navigator
+        initialRouteName={'Home'}
+        screenOptions={{
+          headerShown : false,
+          tabBarStyle : styles.tabBar
         }}
       >
-      </Tab.Screen>
-      <Tab.Screen name="ProductTab" component={ProductNavigator} 
-          options={{
-          tabBarIcon: ({ focused }) => (
-            <Bag2
-              variant= {focused ? 'Bold' : 'Outline'}
-              size={35}
-              color={focused ? 'white' : colors.gray200}
+        {
+          tabs.map((item, index)=> 
+            <Tab.Screen 
+              key={item.id}
+              name={item.screen}
+              component={item.Component}
+              options={{
+                tabBarShowLabel : false,
+                tabBarButton : (props) => <TabButton item={item} {...props} />
+              }}
             />
-          ),
-        }}/>
-      <Tab.Screen name="NotificationTab" component={NotificationNavigator} options={{
-          tabBarIcon: ({ focused }) => (
-            <Global
-              variant= {focused ? 'Bold' : 'Outline'}
-              size={35}
-              color={focused ? 'white' : colors.gray200}
-            />
-          ),
-        }}/>
-      <Tab.Screen name="ProfileTab" component={ProfileNavigator} options={{
-          tabBarIcon: ({ focused }) => (
-            <Profile
-              variant= {focused ? 'Bold' : 'Outline'}
-              size={35}
-              color={focused ? 'white' : colors.gray200}
-            />
-          ),
-        }}/>
+          )
+        }
+      </Tab.Navigator>
 
-    </Tab.Navigator>
+
   )
 }
 
@@ -112,4 +180,23 @@ const styles = StyleSheet.create({
       textTransform: 'capitalize',
       fontSize: 12,
     },
+    tabBar : {
+      backgroundColor : colors.blue600 ,
+      height : 70,
+      position : 'absolute',
+      bottom : 25,
+      marginHorizontal : 16,
+      borderRadius : 16,
+      justifyContent : 'center',
+      alignItems : 'center',
+      borderWidth : 0.5,
+      borderColor : '#dadada',
+      shadowColor : '#000',
+      shadowOffset : {
+        width : 0,
+        height : 10,
+      },
+      shadowOpacity : .3,
+      shadowRadius: 10
+    }
 })
