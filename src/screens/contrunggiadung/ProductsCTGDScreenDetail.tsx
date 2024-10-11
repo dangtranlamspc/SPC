@@ -28,10 +28,10 @@ const ProductsCTGDScreenDetail = ({navigation, route}: any) => {
   useStatusBar('dark-content');
 
   useEffect(() => {
-    getProductNNDTDetail();
+    getProductCTGDDetail();
   }, [id]);
 
-  const getProductNNDTDetail = () => {
+  const getProductCTGDDetail = () => {
     ctgdRef.doc(id).onSnapshot((snap: any) => {
       if (snap.exists) {
         setProductCTGDDetail({

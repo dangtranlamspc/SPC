@@ -115,7 +115,9 @@ const ProductsNongNghiepDoThiScreen = () => {
                   height: 38,
                 },
               ]}
-              onPress={() => navigation.goBack()}>
+              // onPress={() => navigation.goBack()}
+              onPress={() => navigation.navigate('HomeScreen')}
+            >
               <MaterialIcons
                 style={{marginLeft: 8}}
                 name="arrow-back-ios"

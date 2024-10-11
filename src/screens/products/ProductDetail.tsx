@@ -339,7 +339,7 @@ const ProductDetail = ({navigation, route}: any) => {
                         p: { textAlign: 'justify', margin: 0, marginBottom: 10 , fontSize : 16},
                         strong: { fontWeight: 'bold',color: 'rgb(68,114,196)' , fontSize : 18},
                         table: { borderWidth: 1, borderColor: colors.gray600, marginBottom: 10, marginVertical: 10 },
-                        td: { padding: 5, borderWidth: 1, borderColor: colors.gray600 , fontSize : 16},
+                        td: { padding: 5, borderWidth: 1, borderColor: colors.gray600 , fontSize : 16, textAlign:'center'},
                         th: { borderWidth: 1, borderColor: '#000000', padding: 8, backgroundColor: '#f2f2f2' },
                         figure: { margin: 0, padding: 0 },
                         img: { width: '100%', height: 'auto' },

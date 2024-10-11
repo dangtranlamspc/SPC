@@ -92,7 +92,7 @@ const BSCTDetail = ({navigation, route}: any) => {
             {bsctDetail && (
               <Section styles={{paddingVertical: 12}}>
                 <Row styles={{paddingTop : 5}}>
-                  <Col styles={{alignItems:'center'}}>
+                  <Col styles={{justifyContent: 'center'}}>
                     <TextComponents
                       text={bsctDetail?.title}
                       font={fontFamilies.robotoBold}
@@ -116,7 +116,7 @@ const BSCTDetail = ({navigation, route}: any) => {
                         p: { textAlign: 'justify', margin: 0, marginBottom: 10, fontSize : 16 },
                         strong: { fontWeight: 'bold', fontSize : 18},
                         table: { borderWidth: 1, borderColor: '#ddd', marginBottom: 10, marginVertical: 10 },
-                        td: { padding: 5, borderWidth: 1, borderColor: '#ddd' },
+                        td: { padding: 5, borderWidth: 1, borderColor: '#ddd' , textAlign:'center'},
                         th: { borderWidth: 1, borderColor: '#000000', padding: 8, backgroundColor: '#f2f2f2' },
                         figure: { margin: 0, padding: 0 },
                         img: { width: '100%', height: 'auto' },

@@ -5,5 +5,6 @@ export const collectionNames = {
     bsct : 'bsct',
     products : 'products',
     categories : 'categories',
-    nndt : 'nndt'
+    nndt : 'nndt',
+    ctgd : 'ctgd',
 }
