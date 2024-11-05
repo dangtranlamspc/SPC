@@ -6,7 +6,7 @@ export const useStatusBar = (style: StatusBarStyle) => {
     useFocusEffect(
       useCallback(() => {
         StatusBar.setBarStyle(style);
-        StatusBar.setTranslucent(true);
+        // StatusBar.setTranslucent(true);
         Platform.OS === 'android' && StatusBar.setBackgroundColor('transparent');
       }, []),
     );
